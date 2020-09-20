@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main(){
+int main()
+{
     int n, q;
-    cin >> n >>q;
+    cin >> n >> q;
     /*
     vector <int> a,b;
     int ai;
@@ -18,40 +19,46 @@ int main(){
     int mx = 200000;
     long long a[mx], b[mx], util[mx];
 
-    for(int i=0; i<n; i++){
+    for (int i = 0; i < n; i++)
+    {
         cin >> a[i];
     }
 
     //TODO: reconstruct b's formula
-    int l,r;
-    for(int i=0; i<n; i++){
-        util[i]=0;
+    int l, r;
+    for (int i = 0; i < n; i++)
+    {
+        util[i] = 0;
     }
 
-    for (int i=1; i<=q; i++){
-        cin >> l >>r;
-        l--; r--;
+    for (int i = 1; i <= q; i++)
+    {
+        cin >> l >> r;
+        l--;
+        r--;
         util[l]++;
-        if (r<n-1) util[r+1]--;
+        if (r < n - 1)
+            util[r + 1]--;
         /*
         for(int j=l; j<=r; j++){
             b[j-1]+=1;
         }
         */
     }
-    int cnt=0;
-    for(int i=0; i<n; i++){
+    int cnt = 0;
+    for (int i = 0; i < n; i++)
+    {
         cnt += util[i];
         b[i] = cnt;
     }
 
+    sort(a, a + n, greater<long long>());
+    sort(b, b + n, greater<long long>());
 
-    sort(a, a+n, greater<long long>());
-    sort(b, b+n, greater<long long>());
-
-    long long sum =0;
-    for(int i=0; i<n; i++){
-        sum += a[i]*b[i];
+    long long sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        sum += a[i] * b[i];
     }
     cout << sum;
     /*

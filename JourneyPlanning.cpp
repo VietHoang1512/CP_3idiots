@@ -1,30 +1,33 @@
 #include <iostream>
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 #include <vector>
 using namespace std;
 
-const int mx=400000;
-int main(){
+const int mx = 400000;
+int main()
+{
     long long n;
     long long b[mx], c[mx];
     cin >> n;
 
-    for (int i=1; i<=n; i++){
-        cin >>b[i];
-        b[i]-=i;
-        c[b[i]]=0;
+    for (int i = 1; i <= n; i++)
+    {
+        cin >> b[i];
+        b[i] -= i;
+        c[b[i]] = 0;
     }
 
-    long long res=0;
-    for (int i=1; i<=n; i++){
-        c[b[i]]+=b[i]+i;
+    long long res = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        c[b[i]] += b[i] + i;
     }
 
-    for (int i=1; i<=n; i++){
+    for (int i = 1; i <= n; i++)
+    {
         res = max(res, c[b[i]]);
     }
     cout << res;
-
 
     /*
 
