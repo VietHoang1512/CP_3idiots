@@ -7,6 +7,15 @@
         "regex": "cpp",
         "utility": "cpp",
         "valarray": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "thread": "cpp",
+        "*.tcc": "cpp",
+        "mutex": "cpp",
+        "ostream": "cpp",
+        "iomanip": "cpp",
+        "cmath": "cpp",
+        "functional": "cpp",
+        "random": "cpp",
+        "type_traits": "cpp"
     }
 }

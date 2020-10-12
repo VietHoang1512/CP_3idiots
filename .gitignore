@@ -2,7 +2,7 @@
 **/books
 *.txt
 *.exe
-
+*.bin
 
 # Prerequisites
 *.d
