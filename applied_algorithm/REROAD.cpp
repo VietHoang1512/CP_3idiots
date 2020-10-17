@@ -5,7 +5,7 @@ const int mx = 1e5;
 int N, Q, res = 0, pi, ci;
 
 int main()
-{
+{   
     cin >> N;
     vector<int> t(N + 2);
     t[0] = INT_MAX;

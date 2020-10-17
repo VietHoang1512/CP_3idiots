@@ -3,7 +3,7 @@
 *.txt
 *.exe
 *.bin
-
+**/.cph
 # Prerequisites
 *.d
 
