@@ -1,1 +1,0 @@
-{"name":"Local: HIST","url":"d:\\VH\\CP_3idiots\\applied_algorithm\\HIST.cpp","tests":[{"id":1602434788106,"input":"2 0 0\n3 0 0 0\n4 0 1 0 1\n5 1 0 1 0 1\n6 2 0 1 0 1 0\n0\n","output":"0\n0\n1\n1\n2\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\VH\\CP_3idiots\\applied_algorithm\\HIST.cpp","group":"local","local":true}
