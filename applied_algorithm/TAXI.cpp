@@ -2,7 +2,7 @@
 using namespace std;
 const int mx = 25;
 
-int n, k;
+int n, k=1;
 int cost[mx][mx], visited[mx];
 int n_psg = 0, cur_cost = 0, min_cost = INT_MAX, n_trans, res = INT_MAX;
 
@@ -75,7 +75,7 @@ int main()
     cin.tie(0);
     // memset(visited, 0, sizeof(visited));
 
-    cin >> n >> k;
+    cin >> n;
     n_trans = 2 * n;
 
     for (int i = 0; i <= 2 * n; i++)
