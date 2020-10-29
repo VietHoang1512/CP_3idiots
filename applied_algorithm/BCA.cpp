@@ -2,46 +2,72 @@
 
 using namespace std;
 // const int
-int A[15], C[35];
+int A[12], C[32];
 int m, n, k;
-int Assign[15][35], Assigned[15][35], conflict[35][35];
-// vector<pair<int, int>> conflict;
-int mx[15], res = -1;
+int Assign[12][32], Assigned[12][32];
+vector<int> conflict[32];
+int mx[12], res = INT_MAX, mx_tmp = 0;
 
 int x, y;
-bool is_conflict, has_teacher;
+bool is_conflict;
 void Try(int k)
 {
-    cout << "Try " << k << " result " << res << endl;
-    if (k == n)
+    // cout << "Try " << k << " result " << res << endl;
+    if (k == n + 1)
     {
-        for (int i = 1; i <= m; i++)
-        {
-            res = max(res, mx[i]);
-        }
-        cout << "DONE" << endl;
+        // int tmp = 0;
+        // for (int i = 1; i <= m; i++)
+        // {
+        //     tmp = max(tmp, mx[i]);
+        // }
+        res = min(res, mx_tmp);
+        // cout << "DONE" << endl;
         return;
     }
     // has_teacher = false;
     for (int i = 1; i <= m; i++)
     {
-        cout << "Checking teacher " << i << endl;
+
+        // cout << "Checking teacher " << i << endl;
         if (Assign[i][k] && (!Assigned[i][k]))
         {
             is_conflict = false;
-            for (int j = 1; j <= n; j++)
+
+            for (int j : conflict[k])
             {
-                if (Assigned[i][j] && conflict[j][k])
+                // if (j > k)
+                // {
+                //     break;
+                // }
+                if (Assigned[i][j])
+                {
                     is_conflict = true;
+                    break;
+                }
             }
+
+            // for (int j = 1; j <= k-1; j++)
+            // {
+            //     if (Assigned[i][j] && conflict[j][k])
+            //     {
+            //         is_conflict = true;
+            //         break;
+            //     }
+            // }
+
             if (!is_conflict)
             {
-                has_teacher = true;
+                // has_teacher = true;
                 Assigned[i][k] = 1;
-                cout << "Assigned " << k << " to " << i << endl;
+                // cout << "Assigned " << k << " to " << i << endl;
                 mx[i]++;
-                Try(k + 1);
+                int tmp = mx_tmp;
+                mx_tmp = max(mx_tmp, mx[i]);
+                if (mx_tmp < res)
+                    Try(k + 1);
+                mx_tmp = tmp;
                 mx[i]--;
+
                 Assigned[i][k] = 0;
             }
         }
@@ -63,23 +89,27 @@ int main()
             Assign[i][x] = 1;
         }
     }
-    for (int i = 1; i <= m; i++)
-    {
-        for (int j = 1; j <= n; j++)
-        {
-            cout << Assign[i][j] << " ";
-        }
-        cout << endl;
-    }
+    // for (int i = 1; i <= m; i++)
+    // {
+    //     for (int j = 1; j <= n; j++)
+    //     {
+    //         cout << Assign[i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
     cin >> k;
 
     for (int i = 0; i < k; i++)
     {
         cin >> x >> y;
-        conflict[x][y] = 1;
-        conflict[y][x] = 1;
+        conflict[x].push_back(y);
+        conflict[y].push_back(x);
     }
     Try(1);
+    // if (res == 1e6)
+    // {
+    //     res = -1;
+    // }
     cout << res;
     // cout << "\nDONE";
 }
