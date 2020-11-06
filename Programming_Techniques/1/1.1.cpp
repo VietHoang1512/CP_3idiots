@@ -1,22 +1,16 @@
-#include<stdio.h>
-
-int main(){
-    int x, y, z;
-    int* ptr;
-    printf("Enter three integers: ");
-    scanf("%d %d %d", &x, &y, &z);
-    printf("\nThe three integers are:\n");
-    ptr = &x;
-    printf("x = %d\n", *ptr);
-    
-    /*****************
-    # YOUR CODE HERE #
-    *****************/
-
-    ptr = &y;
-    printf("y = %d\n", *ptr);
-    ptr = &z;
-    printf("z = %d\n", *ptr);
-    
-    return 0;
+#include <bits / stdc++.h> 
+using namespace std;
+int a, b, c;
+int *ptr;
+int main()
+{
+    cout << "Enter three integers:" << endl;
+    cin >> a >> b >> c;
+    cout << "The three integers are:\n";
+    ptr = &a;
+    cout << "x = " << *ptr << endl;
+    ptr = &b;
+    cout << "y = " << *ptr << endl;
+    ptr = &c;
+    cout << "z = " << *ptr << endl;
 }
