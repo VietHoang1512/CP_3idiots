@@ -52,7 +52,7 @@ int main()
         // }
         // cout << endl;
 
-        int low = 1, high = x[N] / C + 1;
+        int low = 1, high = x[N];
         int mid;
         while (high > low + 1)
         {

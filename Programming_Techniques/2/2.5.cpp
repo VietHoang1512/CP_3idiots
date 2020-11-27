@@ -51,8 +51,8 @@ Complex operator/(Complex a, Complex b)
     *****************/
     Complex tmp;
     double norm = b.real * b.real + b.imag * b.imag;
-    tmp.real = (a.real * b.real + a.imag * b.imag)/norm;
-    tmp.imag = (a.imag*b.real - b.imag*a.real)/norm;
+    tmp.real = (a.real * b.real + a.imag * b.imag) / norm;
+    tmp.imag = (a.imag * b.real - b.imag * a.real) / norm;
     return tmp;
 }
 

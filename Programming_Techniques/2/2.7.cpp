@@ -1,33 +1,16 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-
-//# viết hàm arr_sum
-/*****************
-# YOUR CODE HERE #
-*****************/
-template <typename T>
-T arr_sum (T a[], int m, T b[], int n){
-    T tmp = 0;
-    for(int i=0; i<m; i++)
-        tmp += a[i];
-    for(int i=0; i<n; i++)
-        tmp += b[i];      
-    return tmp;  
+void for_each(int *arr, int n, void (*func)(int))
+{
+    for (int i = 0; i < n; i++)
+    {
+        func(*(arr + i));
+    }
 }
-int main() {
-    int val;
-    cin >> val;
-    
-    {
-        int a[] = {3, 2, 0, val};
-        int b[] = {5, 6, 1, 2, 7};
-        cout << arr_sum(a, 4, b, 5) << endl;
-    }
-    {
-        double a[] = {3.0, 2, 0, val * 1.0};
-        double b[] = {5, 6.1, 1, 2.3, 7};
-        cout << arr_sum(a, 4, b, 5) << endl;
-    }
-
-    return 0;
+int main()
+{
+    auto x1 = [](int i) -> int {
+        return i;
+    };
+    cout << *x1;
 }
