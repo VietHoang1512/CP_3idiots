@@ -15,7 +15,7 @@ int main()
     //     cout << 1;
     //     return 0;
     // }
-    idx = 1;
+    int idx = 1;
 
     for (; idx < K1; idx++)
     {
