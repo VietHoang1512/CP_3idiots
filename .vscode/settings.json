@@ -71,5 +71,6 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp"
-    }
+    },
+    "python.pythonPath": "D:\\installer\\anaconda3\\envs\\maml\\python.exe"
 }

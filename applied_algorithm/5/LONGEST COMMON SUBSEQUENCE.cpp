@@ -1,11 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int mx = 1e4;
+const int mx = 1e4 + 100;
 int n, m, X[mx], Y[mx];
 int dp[mx][mx];
+
 int main()
 {
+    ios_base::sync_with_stdio(0);
+    cin.tie(NULL);
+    cout.tie(NULL);
     cin >> n >> m;
     for (int i = 1; i <= n; i++)
         cin >> X[i];

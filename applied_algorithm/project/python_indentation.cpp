@@ -3,12 +3,12 @@ using namespace std;
 
 const int mx = 6e3;
 long long mod = 1e9 + 7;
-long long dp[mx][mx];
+int dp[mx][mx];
 
 int main()
 {
     int n, i, j;
-    long long sum;
+    int sum;
     char c;
     cin >> n;
     getchar();

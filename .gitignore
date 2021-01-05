@@ -3,6 +3,8 @@
 *.exe
 *.bin
 **/.cph
+**/test_case
+
 references
 # Prerequisites
 *.d
