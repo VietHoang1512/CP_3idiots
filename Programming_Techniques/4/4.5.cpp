@@ -20,13 +20,12 @@ void dfs(vector<list<int>> adj)
             visited[x] = true;
         }
         S.pop();
-        while(!adj[x].empty())
+        while (!adj[x].empty())
         {
             int y = adj[x].back();
             S.push(y);
             adj[x].pop_back();
         }
-
     }
 }
 int main()

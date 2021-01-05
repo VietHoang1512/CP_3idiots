@@ -9,10 +9,8 @@ bool UCV(int i, int d)
 {
     if (!d)
         return i;
-    if (d<K1)
-        return i==0;
-    
-    
+    if (d < K1)
+        return i == 0;
 }
 int Try(int n, int d)
 {

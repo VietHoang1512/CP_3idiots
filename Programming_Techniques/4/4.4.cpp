@@ -27,9 +27,10 @@ void delete_even(vector<int> &a)
     }
 }
 
-bool cmp(int a, int b){
+bool cmp(int a, int b)
+{
     return a > b;
-} 
+}
 
 void sort_decrease(vector<int> &a)
 {
@@ -38,8 +39,6 @@ void sort_decrease(vector<int> &a)
     *****************/
     sort(a.begin(), a.end(), cmp);
 }
-
-
 
 vector<int> merge_vectors(const vector<int> &a, const vector<int> &b)
 {

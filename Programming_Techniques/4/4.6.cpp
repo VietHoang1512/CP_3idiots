@@ -10,10 +10,6 @@ void bfs(vector<list<int>> adj)
     /*****************
     # YOUR CODE HERE #
     *****************/
-
-
-
-   
 }
 
 int main()

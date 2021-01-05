@@ -16,13 +16,13 @@ map<T, double> fuzzy_set_union(const map<T, double> &a, const map<T, double> &b)
         x.insert(pair<int, double>(e.first, e.second));
     }
     for (auto e : _b)
-    {   if(_a.count(e.first))
+    {
+        if (_a.count(e.first))
             x.insert(pair<int, double>(e.first, max(e.second, _a[e.first])));
         else
         {
             x.insert(pair<int, double>(e.first, e.second));
         }
-        
     }
     return x;
 }

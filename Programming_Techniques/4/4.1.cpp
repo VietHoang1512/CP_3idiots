@@ -48,9 +48,9 @@ Node *reverse(Node *head)
     Node *prev = head, *next;
     cout << head->data << " ";
     head = head->next;
-    
+
     while (head)
-    {   
+    {
         cout << head->data << " ";
         next = head->next;
         head->next = prev;

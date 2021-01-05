@@ -1,49 +1,41 @@
-#include <bits/stdc++.h>
+#include <iostream>
+ 
 using namespace std;
-
-const long long mod = 1e9 + 7;
-long long dp[1000];
-long long N, K1, K2;
-
+ 
+const int D = 1e9 + 7;
+int n, k1, k2;
+int f[1005][1005];
+int ans;
+ 
 int main()
 {
-    cin >> N >> K1 >> K2;
-    // if(N<K1)
-
-    // if (N < K2 + 2)
-    // {
-    //     cout << 1;
-    //     return 0;
-    // }
-
-    // for (int idx=2; idx <= K1; idx++)
-    // {
-    //     dp[idx] = 0;
-    // }
-    dp[1] = 1;
-    dp[K1 + 1] = 1;
-
-    // for (long long i = K1 + 2; i <= K2 + 1; i++)
-    // {
-    //     dp[i] = 1;
-    // }
-
-    for (long long i = K1 + 2; i <= N+1; i++)
+    cin >> n >> k1 >> k2;
+    f[1][0]=1;
+    f[1][1]=1;
+    for (int i = 2; i <= k2; i++)
     {
-        for (long long j = K1; j <= K2; j++)
+        f[0][i]=0;    
+    }
+    for (int i = 2; i <= n; i++)
+    {
+        for (int j = k1; j <= k2; j++)
         {
-            if (i - j - 1 > 0)
-            {
-                dp[i] += (dp[i - j - 1] % mod);
-                dp[i] = dp[i] % mod;
-            }
+            f[i][0] += f[i - 1][j];
+            f[i][0] %= D;
         }
-        // dp[i] = dp[i] % mod;
+ 
+        for (int j = 1; j <= k2; j++)
+        {
+            f[i][j] = f[i - 1][j - 1];
+        }
     }
-    for (long long i = 1; i <= N+1; i++)
+    ans = f[n][0];
+    for (int i = k1; i <= k2; i++)
     {
-        cout << dp[i] << " ";
+        ans += f[n][i];
+        ans %= D;
     }
-    // cout << "\nresult:\n";
-    cout << (dp[N] + dp[N + 1]) % mod;
+    cout << ans << endl;
+ 
+    return 0;
 }
