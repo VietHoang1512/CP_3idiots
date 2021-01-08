@@ -9,7 +9,7 @@ int u, v, w;
 vector<pair<int, int>> adj[mx];
 int max_res = 0, res = 0, visited[mx];
 int max_w, cnt;
-
+int first_vertice;
 void dfs(int u)
 {
     cnt++;
@@ -27,7 +27,12 @@ void dfs(int u)
         {
             int tmp = res;
             res += v.second;
-            max_res = max(res, max_res);
+            if (res > max_res)
+            {
+                max_res = res;
+                first_vertice = v.first;
+            }
+
             dfs(v.first);
             // cout << "Back to " << u << endl;
             res = tmp;
@@ -66,18 +71,16 @@ int main()
     // }
     // dfs(1);
 
-    for (int i = 1; i <= N; i++)
-    {
-
-        if (adj[i].size() == 1)
-        {
-            memset(visited, 0, sizeof(visited));
-            res = 0;
-            cnt = 0;
-            // cout << "Leaf " << i << endl;
-            dfs(i);
-        }
-    }
+    memset(visited, 0, sizeof(visited));
+    res = 0;
+    cnt = 0;
+    // cout << "Leaf " << i << endl;
+    dfs(1);
+    memset(visited, 0, sizeof(visited));
+    res = 0;
+    cnt = 0;
+    // cout << "Leaf " << i << endl;
+    dfs(first_vertice);
 
     cout << max_res;
 }
