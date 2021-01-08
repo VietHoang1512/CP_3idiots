@@ -13,15 +13,21 @@ map<T, double> fuzzy_set_union(const map<T, double> &a, const map<T, double> &b)
     std::map<int, double> _a = a, _b = b;
     for (auto e : _a)
     {
-        x.insert(pair<int, double>(e.first, e.second));
+        x.insert({e.first, e.second});
     }
     for (auto e : _b)
     {
         if (_a.count(e.first))
-            x.insert(pair<int, double>(e.first, max(e.second, _a[e.first])));
-        else
         {
-            x.insert(pair<int, double>(e.first, e.second));
+            x[e.first] = max(e.second, _a[e.first]);
+            // x.insert({e.first, max(e.second, _a[e.first])});
+            // cout << "*";
+        }
+
+        else
+        {   
+            // cout << "#";
+            x.insert({e.first, e.second});
         }
     }
     return x;
@@ -38,8 +44,9 @@ map<T, double> fuzzy_set_intersection(const map<T, double> &a, const map<T, doub
     for (auto e : _a)
     {
         if (_b.count(e.first))
-        {
-            x.insert(pair<int, double>(e.first, min(e.second, _b[e.first])));
+        {   
+            x[e.first] = min(e.second, _b[e.first]);
+            // x.insert({e.first, min(e.second, _b[e.first])});
         }
     }
     return x;

@@ -6,10 +6,21 @@ void bfs(vector<list<int>> adj)
     queue<int> Q;
     vector<bool> visited(adj.size());
     Q.push(1); // Bắt đầu từ đỉnh số 1
-
-    /*****************
-    # YOUR CODE HERE #
-    *****************/
+    while (Q.size())
+    {
+        int u = Q.front();
+        visited[u] = true;
+        cout << u << endl;
+        Q.pop();
+        for (auto v : adj[u])
+        {
+            if (!visited[v])
+            {
+                visited[v] = true;
+                Q.push(v);
+            }
+        }
+    }
 }
 
 int main()

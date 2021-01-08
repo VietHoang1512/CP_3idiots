@@ -2,7 +2,7 @@
 
 using namespace std;
 
-const unsigned int mx = 10;
+const unsigned int mx = 6000;
 
 unsigned int N, K;
 unsigned int C[mx], D[mx];
@@ -21,10 +21,8 @@ unsigned int dijkstra(unsigned int s, unsigned int t)
         dis[i] = INT_MAX;
     }
     priority_queue<pair<unsigned int, unsigned int>, vector<pair<unsigned int, unsigned int>>, greater<pair<unsigned int, unsigned int>>> Q;
-    
     Q.push(make_pair(0, s));
     dis[s] = 0;
-    
     while (Q.size())
     {
         unsigned int u = Q.top().second;
@@ -33,13 +31,11 @@ unsigned int dijkstra(unsigned int s, unsigned int t)
         {
             unsigned int v = i.first;
             unsigned int w = i.second;
-            cout << "w " << w << endl;
             if (v == s)
                 continue;
             if ((dis[v] > dis[u] + w))
             {
                 dis[v] = dis[u] + w;
-                cout << "Distance to " << v << " updated to " << dis[v] << endl; 
                 Q.push(make_pair(dis[v], v));
             }
         }
@@ -98,14 +94,8 @@ int main()
         bfs(i);
         // cout << "\n***********************\n";
     }
-    for (auto x : weight){
-        vector<pair<unsigned int, unsigned int>> y;
-        x = y;
-    }
-    for (auto x : weight){
-        cout << x.size();
-    }
-              
+    for (auto x : weight)
+        x.clear();
 
     for (unsigned int i = 1; i <= N; i++)
     {
@@ -119,9 +109,9 @@ int main()
     }
 
     cout << dijkstra(1, N);
-    cout << endl;
-    for (unsigned  int i = 1; i <= N; i++)
-    {
-        cout << dis[i] << " ";
-    }
+    // cout << endl;
+    // for (unsigned  int i = 1; i <= N; i++)
+    // {
+    //     cout << dis[i] << " ";
+    // }
 }

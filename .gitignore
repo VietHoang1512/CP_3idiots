@@ -4,6 +4,7 @@
 *.bin
 **/.cph
 **/test_case
+*.zip
 
 references
 # Prerequisites

@@ -27,7 +27,7 @@ void visit(int u, int p)
                 NumChild++;
                 Low[u] = min(Low[u], Low[v]);
 
-                if (Low[u] >= Num[v])
+                if (Low[v] >= Num[v])
                     CriticalEdge++;
 
                 if (u == p)

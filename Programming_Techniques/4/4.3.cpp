@@ -10,7 +10,7 @@ Vector cross_product(Vector a, Vector b)
     # YOUR CODE HERE #
     *****************/
     double x = get<1>(a) * get<2>(b) - get<2>(a) * get<1>(b);
-    double y = get<0>(a) * get<2>(b) - get<2>(a) * get<0>(b);
+    double y = -(get<0>(a) * get<2>(b) - get<2>(a) * get<0>(b));
     double z = get<0>(a) * get<1>(b) - get<1>(a) * get<0>(b);
     return tuple<double, double, double>(x, y, z);
 }

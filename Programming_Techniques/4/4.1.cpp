@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+
 struct Node
 {
     int data;
@@ -43,21 +44,23 @@ Node *reverse(Node *head)
     /*****************
     # YOUR CODE HERE #
     *****************/
-    // if (!head)
-    //     return head;
-    Node *prev = head, *next;
-    cout << head->data << " ";
-    head = head->next;
+    Node *current = head;
+    Node *prev = NULL, *next = NULL;
 
-    while (head)
+    while (current != NULL)
     {
-        cout << head->data << " ";
-        next = head->next;
-        head->next = prev;
-        prev = head;
-        head = next;
+        // Store next
+        next = current->next;
+
+        // Reverse current node's pointer
+        current->next = prev;
+
+        // Move pointers one position ahead.
+        prev = current;
+        current = next;
     }
-    return prev;
+    head = prev;
+    return head;
 }
 
 int main()
@@ -71,13 +74,13 @@ int main()
         head = prepend(head, u);
     }
 
-    // cout << "Original list: ";
-    // print(head);
+    cout << "Original list: ";
+    print(head);
 
     head = reverse(head);
-
+    cout << endl;
     cout << "Reversed list: ";
-    // print(head);
+    print(head);
 
     return 0;
 }
