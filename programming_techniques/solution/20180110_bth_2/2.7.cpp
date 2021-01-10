@@ -3,7 +3,7 @@ using namespace std;
 
 template <typename T>
 
-T arr_sum(T* a, int m, T*b, int n)
+T arr_sum(T *a, int m, T *b, int n)
 {
     T c = 0;
 
@@ -16,7 +16,7 @@ T arr_sum(T* a, int m, T*b, int n)
     {
         c += b[i];
     }
-    
+
     return c;
 }
 
@@ -25,10 +25,11 @@ T arr_sum(T* a, int m, T*b, int n)
 # YOUR CODE HERE #
 *****************/
 
-int main() {
+int main()
+{
     int val;
     cin >> val;
-    
+
     {
         int a[] = {3, 2, 0, val};
         int b[] = {5, 6, 1, 2, 7};

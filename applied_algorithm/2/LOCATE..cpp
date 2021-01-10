@@ -6,7 +6,7 @@ int L, C, p;
 int cnt[2000][2000];
 // pair<int, int> p;
 int res;
-
+vector<pair<int, int>> radar1, radar2;
 int main()
 
 {
@@ -16,9 +16,9 @@ int main()
     cin >> n_test;
     while (n_test--)
     {
-        vector<pair<int, int>> radar1, radar2;
-        memset(cnt, 0, sizeof(cnt));
 
+        memset(cnt, 0, sizeof(cnt));
+        radar1.clear(), radar2.clear();
         cin >> L >> C;
         for (int i = 0; i < L; i++)
         {
@@ -52,7 +52,7 @@ int main()
         {
             for (int j = 0; j < 2000; j++)
                 res = max(res, cnt[i][j]);
-                }
+        }
         cout << res << endl;
     }
 }

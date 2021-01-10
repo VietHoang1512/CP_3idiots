@@ -6,28 +6,38 @@ using namespace std;
 
 const int N = 128;
 
-struct Matrix {
+struct Matrix
+{
     unsigned int mat[N][N];
 
-    Matrix() {
+    Matrix()
+    {
         memset(mat, 0, sizeof mat);
     }
 };
 
-bool operator == (const Matrix &a, const Matrix &b) {
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
-            if (a.mat[i][j] != b.mat[i][j]) return false;
+bool operator==(const Matrix &a, const Matrix &b)
+{
+    for (int i = 0; i < N; ++i)
+    {
+        for (int j = 0; j < N; ++j)
+        {
+            if (a.mat[i][j] != b.mat[i][j])
+                return false;
         }
     }
     return true;
 }
 
-Matrix multiply_naive(const Matrix &a, const Matrix &b) {
+Matrix multiply_naive(const Matrix &a, const Matrix &b)
+{
     Matrix c;
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
-            for (int k = 0; k < N; ++k) {
+    for (int i = 0; i < N; ++i)
+    {
+        for (int j = 0; j < N; ++j)
+        {
+            for (int k = 0; k < N; ++k)
+            {
                 c.mat[i][j] += a.mat[i][k] * b.mat[k][j];
             }
         }
@@ -35,13 +45,17 @@ Matrix multiply_naive(const Matrix &a, const Matrix &b) {
     return c;
 }
 
-Matrix multiply_fast(const Matrix &a, const Matrix &b) {
+Matrix multiply_fast(const Matrix &a, const Matrix &b)
+{
     Matrix c;
     unsigned int tmp;
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
+    for (int i = 0; i < N; ++i)
+    {
+        for (int j = 0; j < N; ++j)
+        {
             tmp = 0;
-            for (int k = 0; k < N; ++k) {
+            for (int k = 0; k < N; ++k)
+            {
                 tmp += a.mat[i][k] * b.mat[k][j];
             }
             c.mat[i][j] = tmp;
@@ -50,10 +64,13 @@ Matrix multiply_fast(const Matrix &a, const Matrix &b) {
     return c;
 }
 
-Matrix gen_random_matrix() {
+Matrix gen_random_matrix()
+{
     Matrix a;
-    for (int i = 0; i < N; ++i) {
-        for (int j = 0; j < N; ++j) {
+    for (int i = 0; i < N; ++i)
+    {
+        for (int j = 0; j < N; ++j)
+        {
             a.mat[i][j] = rand();
         }
     }
@@ -62,7 +79,8 @@ Matrix gen_random_matrix() {
 
 Matrix base;
 
-double benchmark(Matrix (*multiply) (const Matrix&, const Matrix&), Matrix &result) {
+double benchmark(Matrix (*multiply)(const Matrix &, const Matrix &), Matrix &result)
+{
     const int NUM_TEST = 10;
     const int NUM_ITER = 64;
 
@@ -70,9 +88,11 @@ double benchmark(Matrix (*multiply) (const Matrix&, const Matrix&), Matrix &resu
     result = a;
 
     double taken = 0;
-    for (int t = 0; t < NUM_TEST; ++t) {
+    for (int t = 0; t < NUM_TEST; ++t)
+    {
         clock_t start = clock();
-        for (int i = 0; i < NUM_ITER; ++i) {
+        for (int i = 0; i < NUM_ITER; ++i)
+        {
             a = multiply(a, result);
             result = multiply(result, a);
         }
@@ -85,7 +105,8 @@ double benchmark(Matrix (*multiply) (const Matrix&, const Matrix&), Matrix &resu
     return taken;
 }
 
-int main() {
+int main()
+{
     base = gen_random_matrix();
 
     Matrix a, b;
@@ -94,9 +115,12 @@ int main() {
     printf("Fast version\n");
     double fast = benchmark(multiply_fast, b);
 
-    if (a == b) {
+    if (a == b)
+    {
         printf("Correct answer! Your code is %.2f%% faster\n", slow / fast * 100.0);
-    } else {
+    }
+    else
+    {
         printf("Wrong answer!\n");
     }
     return 0;

@@ -1,30 +1,39 @@
 #include <stdio.h>
 
-void print(int n) {
+void print(int n)
+{
     printf("n=%d\n", n);
 }
 
-int mul3plus1(int n) {
+int mul3plus1(int n)
+{
     return n * 3 + 1;
 }
 
-int div2(int n) {
+int div2(int n)
+{
     return n / 2;
 }
 
 // khai báo các tham số cho các con trỏ hàm odd, even và output
-void simulate(int n, int (*odd)(int), int (*even)(int), void (*output)(int))  {
+void simulate(int n, int (*odd)(int), int (*even)(int), void (*output)(int))
+{
     (*output)(n);
-    if (n == 1) return;
-    if (n % 2 == 0) {
+    if (n == 1)
+        return;
+    if (n % 2 == 0)
+    {
         n = (*even)(n);
-    } else {
+    }
+    else
+    {
         n = (*odd)(n);
     }
     simulate(n, odd, even, output);
 }
 
-int main() {
+int main()
+{
     int (*odd)(int) = NULL;
     int (*even)(int) = NULL;
 

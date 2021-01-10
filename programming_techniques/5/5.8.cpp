@@ -24,15 +24,15 @@ int main()
     {
         int a;
         cin >> a;
-        if (cal(a) == 'A')
+        if (8.5 <= a)
             ++A;
-        if (cal(a) == 'B')
+        if (7 <= a && a < 8.5)
             ++B;
-        if (cal(a) == 'C')
+        if (5.5 <= a && a < 7)
             ++C;
-        if (cal(a) == 'D')
+        if (4 <= a && a < 5.5)
             ++D;
-        if (cal(a) == 'F')
+        if (a < 4)
             ++F;
     }
     cout << A << " " << B << " " << C << " " << D << " " << F;
