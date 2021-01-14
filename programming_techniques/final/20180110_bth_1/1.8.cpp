@@ -24,17 +24,18 @@ void input(int **mt, int m, int n)
 
 void output(int **mt, int m, int n)
 {
+    // for (int i = 0; i < m; i++)
+    // {
+    //     for (int j = 0; j < n; j++)
+    //     {
+    //         printf("mt[%d][%d] = ", i, j);
+            
+    //     }
+    // }
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
-        {
-            printf("mt[%d][%d] = ", i, j);
-        }
-    }
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
+        { printf("mt[%d][%d] = ", i, j);
             printf("%d ", mt[i][j]);
         }
         printf("\n");

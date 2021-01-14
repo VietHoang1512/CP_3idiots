@@ -3,7 +3,7 @@
 
 using namespace std;
 
-template <class T>
+template <typename T>
 set<T> set_union(const set<T> &a, const set<T> &b)
 {
     /*****************
@@ -17,7 +17,7 @@ set<T> set_union(const set<T> &a, const set<T> &b)
     return x;
 }
 
-template <class T>
+template <typename T>
 set<T> set_intersection(const set<T> &a, const set<T> &b)
 {
     /*****************
@@ -34,7 +34,7 @@ set<T> set_intersection(const set<T> &a, const set<T> &b)
     return x;
 }
 
-template <class T>
+template <typename T>
 void print_set(const std::set<T> &a)
 {
     for (const T &x : a)

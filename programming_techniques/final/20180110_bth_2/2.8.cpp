@@ -16,7 +16,7 @@ int main()
         {10, val2},
     };
 
-    sort(a.begin(), a.end(), [](const vector<int> &x, const vector<int> &y) {
+    sort(a.begin(), a.end(), [](const vector<int> x, const vector<int> y) {
         return accumulate(x.begin(), x.end(), 0) > accumulate(y.begin(), y.end(), 0);
     });
 

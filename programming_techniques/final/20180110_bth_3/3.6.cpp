@@ -23,16 +23,12 @@ int gcd2(int a, int b)
     {
         return a;
     }
-    while (a != b)
+    
+    while (b)
     {
-        if (a > b)
-        {
-            a -= b;
-        }
-        else
-        {
-            b -= a;
-        }
+        int tmp = a;
+        a = b;
+        b = tmp%b;
     }
     return a;
 }

@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-int m, n, Smin = 100000;
+int m, n, Smin = 10000000;
 long long S = 0;
 int cmin = 100000000;
 int x[100];

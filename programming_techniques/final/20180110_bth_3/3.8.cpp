@@ -44,7 +44,8 @@ int main()
         /*****************
         # YOUR CODE HERE #
         *****************/
-        //# back_track
+        // # back_track
+
         if (top.j > -1)
         {
             sum -= m[top.i] * x[top.i];
@@ -61,6 +62,6 @@ int main()
         ++top.j;
     }
     cout << -1;
-
+    
     return 0;
 }

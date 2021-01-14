@@ -23,7 +23,8 @@ void dfs(vector<list<int>> adj)
         while (!adj[x].empty())
         {
             int y = adj[x].back();
-            S.push(y);
+            // if (!visited[y])
+                S.push(y);
             adj[x].pop_back();
         }
     }
