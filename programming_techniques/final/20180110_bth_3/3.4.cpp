@@ -22,7 +22,7 @@ int lis(int i)
     int x = 1;
     for (int j = 0; j < i; j++)
     {
-        if (a[j] < a[i])
+        if ((a[j] +1)== a[i])
         {
             x = max(x, lis(j) + 1);
         }
@@ -36,7 +36,7 @@ void trace(int i)
 {
     for (int j = 0; j < i; j++)
     {
-        if (a[j] < a[i] && mem[i] == 1 + mem[j])
+        if ((a[j] +1)== a[i] && mem[i] == 1 + mem[j])
         {
             trace(j);
             break;

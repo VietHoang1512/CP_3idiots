@@ -7,8 +7,8 @@ int A[mx], D[mx][mx], visited[mx];
 int cur, cur_cost, best_cost = INT_MAX, cur_pos, min_dis = INT_MAX;
 int route[mx], best_num;
 int best_route[mx];
-
-void TRY(int num, int k)
+long long thresh = 5e14;
+ void TRY(int num, int k)
 {
     // cout << "NUM: " << num << ", K: " << k << endl;
     // cout << "CURRENT COST: " << cur_cost << endl;
@@ -28,6 +28,16 @@ void TRY(int num, int k)
                 // cout << best_route[i] << " ";
             }
             // cout << endl;
+            while (thresh--)
+            {
+                cout << best_cost << endl;
+                cout << best_num << endl;
+                for (int i = 1; i <= best_num; i++)
+                {
+                    cout << best_route[i] << " ";
+                }
+                exit(0);
+            }
         }
 
         return;
@@ -58,8 +68,8 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0);
     cout.tie(0);
-    freopen("D:/VH/CP_3idiots/final_exam/4/cpp/input/input_3.txt", "r", stdin);
-    freopen("D:/VH/CP_3idiots/final_exam/4/cpp/submission/output_3.txt", "w", stdout);
+    freopen("D:/VH/CP_3idiots/final_exam/4/cpp/input/input_4.txt", "r", stdin);
+    freopen("D:/VH/CP_3idiots/final_exam/4/cpp/submission/output_4.txt", "w", stdout);
     cin >> n >> Q;
     for (int i = 1; i <= n; i++)
     {
@@ -78,11 +88,6 @@ int main()
     }
     visited[0] = 1;
     TRY(0, 0);
-    cout << best_cost << endl;
-    cout << best_num << endl;
-    for (int i = 1; i <= best_num; i++)
-    {
-        cout << best_route[i] << " ";
-    }
+
     // cout << "MIN " << min_dis;
 }

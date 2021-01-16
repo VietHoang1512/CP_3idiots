@@ -43,7 +43,7 @@ int main()
     vector<vector<pair<int, int>>> adj(n);
     auto add_edge = [&adj](int u, int v, int w) {
         adj[u].push_back({v, w});
-        adj[v].push_back({u, w});
+        adj[v].push_back({u, w});1
     };
 
     add_edge(0, 1, 4);
