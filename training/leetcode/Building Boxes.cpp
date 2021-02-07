@@ -7,7 +7,7 @@ int max_not_exceed(int n, int k)
     int tmp = 0;
     for (int i = 1; i < k; i++)
     {
-        if ((i * (i + 1) / 2) > n)
+        if ((i * (i + 1) / 2) >= n)
             return i;
     }
     return 0;
@@ -17,7 +17,8 @@ class Solution
 public:
     int minimumBoxes(int n)
     {
-        // if(n==15) return 9;
+        if (n == 1)
+            return 1;
         int tmp = 0;
         for (int i = 2; i <= n; i++)
         {
