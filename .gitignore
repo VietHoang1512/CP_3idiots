@@ -5,6 +5,7 @@
 **/.cph
 **/test_case
 *.zip
+*csv 
 
 references
 # Prerequisites
