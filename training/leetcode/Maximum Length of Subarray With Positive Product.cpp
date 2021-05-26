@@ -25,25 +25,32 @@ public:
             if (nums[i] > 0)
             {
                 pos[i] = pos[i - 1] + 1;
-                neg[i] = neg[i - 1] + 1;
+                if (neg[i - 1])
+                    neg[i] = neg[i - 1] + 1;
             }
             else if (nums[i] < 0)
             {
-                pos[i] = pos[i - 1] + 1;
                 neg[i] = pos[i - 1] + 1;
+                if (neg[i - 1])
+                    pos[i] = neg[i - 1] + 1;
+            }
+            else
+            {
+                pos[i] = neg[i] = 0;
             }
         }
-        for (auto x : pos)
-        {
-            cout << x << " ";
-        }
-        cout << endl;
-        for (auto x : pos)
-        {
-            cout << x << " ";
-        }
-        cout << endl
-             << endl;
+        // for (auto x : pos)
+        // {
+        //     cout << x << " ";
+        // }
+        // cout << endl;
+        // for (auto x : neg)
+        // {
+        //     cout << x << " ";
+        // }
+        // cout << endl
+        //      << endl;
+
         return *max_element(pos.begin(), pos.end());
     }
 };

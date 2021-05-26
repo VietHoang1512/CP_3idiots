@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define int long long
+#define __builtin_popcount __builtin_popcountll
+
 int main()
 {
 }
