@@ -10,14 +10,13 @@ int main()
 class Solution
 {
 public:
-    int uniquePaths(int m, int n)
+    int trailingZeroes(int n)
     {
-
-        long long res = 1;
-        for (int k = 1; k <= m; k++)
+        int p = 5, res = 0;
+        while (p <= n)
         {
-            res *= (n + k);
-            res /= k;
+            res += (n / p);
+            p *= 5;
         }
         return res;
     }
